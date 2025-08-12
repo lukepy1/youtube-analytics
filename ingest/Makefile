@@ -13,7 +13,7 @@ login:
 	@aws ecr get-login-password --region $(AWS_REGION) | docker login --username AWS --password-stdin $(REPO_URI)
 
 build:
-	docker build --provenance false -t $(IMAGE_NAME) ./ingest
+	docker build --provenance false -t $(IMAGE_NAME) .
 
 tag:
 	docker tag $(IMAGE_NAME):latest $(REPO_URI):$(TAG)
