@@ -15,7 +15,6 @@ QUERY_TERM = QUERY_LIST[query_rand_int]
 
 MAX_RESULTS = 50
 
-print('test git actions')
 
 def get_secret(secret_name):
     client = boto3.client('secretsmanager', region_name='us-east-1')
