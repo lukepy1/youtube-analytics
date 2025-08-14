@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build and push ingest Docker image
-        working-directory: ./ingest
+        working-directory: ./ingest/youtube_api_metadata
         run: make
 
   terraform_apply:
