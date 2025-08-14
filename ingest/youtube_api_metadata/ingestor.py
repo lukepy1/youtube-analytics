@@ -24,8 +24,7 @@ def get_secret(secret_name, region_name='us-east-1'):
     return response['SecretString']
 
 
-secrets = get_secret("youtube-api-key")
-API_KEY = secrets.get("YOUTUBE_API_KEY")
+API_KEY = get_secret("youtube-api-key")
 
 s3 = boto3.client("s3")
 s3_bucket = os.environ["S3_BUCKET"]
