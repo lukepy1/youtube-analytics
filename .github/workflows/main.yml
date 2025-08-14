@@ -36,4 +36,7 @@ jobs:
         run: terraform init
       - name: Terraform apply
         working-directory: ./infra
-        run: TF_LOG=DEBUG terraform apply -auto-approve -input=false -lock-timeout=100s
+        env:
+          TF_LOG: DEBUG
+          TF_VAR_youtube_api_key: ${{ secrets.YOUTUBE_API_KEY }}
+        run: terraform apply -auto-approve -input=false -lock-timeout=100s
