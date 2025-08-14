@@ -16,10 +16,13 @@ QUERY_TERM = QUERY_LIST[query_rand_int]
 MAX_RESULTS = 50
 
 
-def get_secret(secret_name):
-    client = boto3.client('secretsmanager', region_name='us-east-1')
+
+def get_secret(secret_name, region_name='us-east-1'):
+    client = boto3.client('secretsmanager', region_name=region_name)
     response = client.get_secret_value(SecretId=secret_name)
-    return json.loads(response['SecretString']) if 'SecretString' in response else {}
+    
+    return response['SecretString']
+
 
 secrets = get_secret("youtube-api-key")
 API_KEY = secrets.get("YOUTUBE_API_KEY")

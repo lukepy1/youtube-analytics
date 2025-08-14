@@ -11,5 +11,5 @@ myenv/
 .terraform/
 terraform.tfvars
 
-#outputs
+# outputs
 *.csv
